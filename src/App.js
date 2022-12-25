@@ -15,7 +15,7 @@ function App() {
         <footer className="mt-3">
           <p className="text-center">
             <a
-              href="/"
+              href="https://github.com/IhorKarp/weather-app-project-react"
               target="_blank"
               className="open-source text-decoration-none text-dark"
               rel="noopener noreferrer"
