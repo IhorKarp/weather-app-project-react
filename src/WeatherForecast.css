@@ -1,0 +1,13 @@
+ul {
+    padding: 0;
+  }
+  #one,
+  #two,
+  #three {
+    display: block;
+    margin: 0 auto;
+  }
+  p {
+    text-align: center;
+  }
+  

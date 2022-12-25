@@ -1,0 +1,41 @@
+.form-control {
+    background-color: #ffe07d;
+    border: 3px solid black;
+    border-radius: 10px;
+    opacity: 0.9;
+    font-weight: 900;
+    font-family: "Quantico", sans-serif;
+  }
+  .form-control::placeholder {
+    color: black;
+  }
+  .form-control:-ms-input-placeholder {
+    color: black;
+  }
+  
+  .form-control::-ms-input-placeholder {
+    color: black;
+  }
+  
+  h1 {
+    font-family: "Covered By Your Grace", cursive;
+    font-weight: 900;
+    color: black;
+    font-size: 50px;
+  }
+  .container,
+  a {
+    font-family: "Quantico", sans-serif;
+    color: black;
+    opacity: 0.9;
+  }
+  ul {
+    list-style-type: none;
+  }
+  .temp {
+    font-size: 70px;
+    color: black;
+  }
+  a:hover {
+    color: white;
+  }
