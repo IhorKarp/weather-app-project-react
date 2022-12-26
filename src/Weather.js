@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
 import cat from "./images/cat.png";
 import pin from "./images/pin.gif";
@@ -73,56 +74,7 @@ const [city, setCity] = useState(props.defaultCity);
             </form>
           </div>
     
-          <div className="container all-weather bg-transparent">
-            <div className="row">
-              <div className="col-9 left-panel">
-                <h1 className="name m-0 text-capitalize">{weatherData.city}</h1>
-                <p className="quote m-0 fw-semibold fst-italic">
-                  Cats are really cute...
-                </p>
-                <div className="temp-line">
-                  <span>
-                    <span id="temp" className="temp">
-                      {Math.round(weatherData.temperature)}
-                    </span>
-                    <span className="temp-links">
-                      <a
-                        href="/"
-                        id="celsius-link"
-                        className="text-decoration-none fs-5"
-                        
-                      >
-                        {" "}
-                        C{" "}
-                      </a>
-                      <span className="fs-5">|</span>
-                      <a
-                        href="/"
-                        id="fahrenheit-link"
-                        className="text-decoration-none fs-5"
-                      
-                      >
-                        {" "}
-                        F{" "}
-                      </a>
-                    </span>
-                  </span>
-                  <img className="ms-1" src={weatherData.icon} width={72} alt="weather logo" />
-                </div>
-                <ul className="weather-descriptionn fw-semibold">
-                  <li className="text-capitalize">{weatherData.description}</li>
-                  <li>wind:  {Math.round(weatherData.wind)}mph</li>
-                  <li>humidity: {weatherData.humidity}%</li>
-                </ul>
-              </div>
-              <div className="col-3 right-panel">
-                <ul>
-                  <li className="fw-bolder fs-5">Friday</li>
-                  <li className="fw-semibold">13:43</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          <WeatherInfo data={weatherData} />
         </div>
       );
   } else{
