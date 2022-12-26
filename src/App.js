@@ -10,7 +10,7 @@ function App() {
     <div className="App">
        <div className="general mt-5">
         <div className="container main mt-2 border border-3 border-dark rounded-3">
-          <WeatherPanel temperature={10} />
+          <WeatherPanel defaultCity="New York" temperature={10} />
           <WeatherForecast />
         </div>
         <footer className="mt-3">
