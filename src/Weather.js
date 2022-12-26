@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./Weather.css";
-import cloud from "./cloud.gif";
-import cat from "./cat.png";
-import pin from "./pin.gif";
+import cat from "./images/cat.png";
+import pin from "./images/pin.gif";
 import axios from "axios";
 
 export default function WeatherPanel(props) {
@@ -21,6 +20,7 @@ const [city, setCity] = useState(props.defaultCity);
         wind: response.data.wind.speed,
         city: response.data.name,
     });
+    console.log(response);
   }
 
   function search() {
@@ -107,7 +107,7 @@ const [city, setCity] = useState(props.defaultCity);
                       </a>
                     </span>
                   </span>
-                  <img className="ms-1" src={cloud} width={72} alt="weather logo" />
+                  <img className="ms-1" src={weatherData.icon} width={72} alt="weather logo" />
                 </div>
                 <ul className="weather-descriptionn fw-semibold">
                   <li className="text-capitalize">{weatherData.description}</li>

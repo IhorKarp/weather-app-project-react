@@ -1,6 +1,6 @@
 import React from "react";
 import "./WeatherForecast.css";
-import cloud from "./cloud.gif";
+import cloud from "./images/cloud.gif";
 
 export default function WeatherForecast() {
   return (
