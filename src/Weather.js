@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./WeatherPanel.css";
+import "./Weather.css";
 import cloud from "./cloud.gif";
 import cat from "./cat.png";
 import pin from "./pin.gif";
@@ -7,13 +7,8 @@ import axios from "axios";
 
 export default function WeatherPanel(props) {
 const[weatherData, setWeatherData] = useState({ready: false});
-  const [temperature, setTemperature] = useState(null);
-  const [city, setCity] = useState(props.defaultCity);
-  const [post, setPost] = useState(null);
-  const [description, setDescription] = useState(null);
-  const [wind, setWind] = useState(null);
-  const [humidity, setHumidity] = useState(null);
-
+const [city, setCity] = useState(props.defaultCity);
+  
   function handleResponse(response) {
     setWeatherData({
         ready:true,
@@ -26,11 +21,6 @@ const[weatherData, setWeatherData] = useState({ready: false});
         wind: response.data.wind.speed,
         city: response.data.name,
     });
-    setPost(`${response.data.name}`);
-    setTemperature(Math.round(response.data.main.temp));
-    setDescription(response.data.weather[0].description);
-    setWind(Math.round(response.data.wind.speed));
-    setHumidity(response.data.main.humidity);
   }
 
   function search() {
@@ -40,17 +30,6 @@ const[weatherData, setWeatherData] = useState({ready: false});
 
     axios.get(apiUrl).then(handleResponse);
   }
-
-  function celsius(event) {
-    event.preventDefault();
-    setTemperature(props.temperature);
-  }
-
-  function fahrenheit(event) {
-    event.preventDefault();
-    setTemperature(Math.round(props.temperature * (9 / 5) + 32));
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
     search();
@@ -59,7 +38,7 @@ const[weatherData, setWeatherData] = useState({ready: false});
     setCity(event.target.value);
   }
 
-  if(weatherData){
+  if(weatherData.ready){
     return (
         <div onSubmit={handleSubmit}>
           <div className="container search bg-transparent">
@@ -97,21 +76,21 @@ const[weatherData, setWeatherData] = useState({ready: false});
           <div className="container all-weather bg-transparent">
             <div className="row">
               <div className="col-9 left-panel">
-                <h1 className="name m-0 text-capitalize">{post}</h1>
+                <h1 className="name m-0 text-capitalize">{weatherData.city}</h1>
                 <p className="quote m-0 fw-semibold fst-italic">
                   Cats are really cute...
                 </p>
                 <div className="temp-line">
                   <span>
                     <span id="temp" className="temp">
-                      {temperature}
+                      {Math.round(weatherData.temperature)}
                     </span>
                     <span className="temp-links">
                       <a
                         href="/"
                         id="celsius-link"
                         className="text-decoration-none fs-5"
-                        onClick={celsius}
+                        
                       >
                         {" "}
                         C{" "}
@@ -121,7 +100,7 @@ const[weatherData, setWeatherData] = useState({ready: false});
                         href="/"
                         id="fahrenheit-link"
                         className="text-decoration-none fs-5"
-                        onClick={fahrenheit}
+                      
                       >
                         {" "}
                         F{" "}
@@ -131,9 +110,9 @@ const[weatherData, setWeatherData] = useState({ready: false});
                   <img className="ms-1" src={cloud} width={72} alt="weather logo" />
                 </div>
                 <ul className="weather-descriptionn fw-semibold">
-                  <li className="text-capitalize">{description}</li>
-                  <li>wind:{wind}mph</li>
-                  <li>humidity: {humidity}%</li>
+                  <li className="text-capitalize">{weatherData.description}</li>
+                  <li>wind:  {Math.round(weatherData.wind)}mph</li>
+                  <li>humidity: {weatherData.humidity}%</li>
                 </ul>
               </div>
               <div className="col-3 right-panel">

@@ -1,6 +1,6 @@
 import './App.css';
 import WeatherForecast from "./WeatherForecast";
-import WeatherPanel from "./WeatherPanel";
+import Weather from "./Weather";
 import React from "react";
 import github from "./github.png";
 
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
        <div className="general mt-5">
         <div className="container main mt-2 border border-3 border-dark rounded-3">
-          <WeatherPanel defaultCity="New York" temperature={10} />
+          <Weather defaultCity="New York" temperature={10} />
           <WeatherForecast />
         </div>
         <footer className="mt-3">
