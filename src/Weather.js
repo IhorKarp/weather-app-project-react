@@ -5,7 +5,7 @@ import cat from "./images/cat.png";
 import pin from "./images/pin.gif";
 import axios from "axios";
 
-export default function WeatherPanel(props) {
+export default function Weather(props) {
 const[weatherData, setWeatherData] = useState({ready: false});
 const [city, setCity] = useState(props.defaultCity);
   
@@ -41,9 +41,9 @@ const [city, setCity] = useState(props.defaultCity);
 
   if(weatherData.ready){
     return (
-        <div onSubmit={handleSubmit}>
+        <div className="Weather">
           <div className="container search bg-transparent">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="row">
                 <div className="col-3 p-0 ">
                   <img className="icon" src={cat} alt="icon" width={108} />

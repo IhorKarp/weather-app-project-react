@@ -38,7 +38,7 @@ export default function WeatherInfo(props){
                       </a>
                     </span>
                   </span>
-                  <img className="ms-1" src={props.data.icon} width={72} alt="weather logo" />
+                  <img className="ms-1" src={`http://openweathermap.org/img/wn/${props.data.icon}@2x.png`} width={72} alt="weather logo" />
                 </div>
                 <ul className="weather-descriptionn fw-semibold">
                   <li className="text-capitalize">{props.data.description}</li>
