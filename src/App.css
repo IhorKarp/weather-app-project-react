@@ -3,30 +3,4 @@
   display: block;
   margin: 0 auto;
 }
-.main {
-  background: linear-gradient(
-    113deg,
-    rgb(251, 250, 205) 24.4%,
-    rgb(247, 163, 205) 53.7%,
-    rgb(141, 66, 243) 99.2%
-  );
-  animation: animateBg 14s linear infinite;
-  background-image: linear-gradient(
-    90deg,
-    #ffe07d,
-    #f9be4e,
-    #ffc250,
-    #fdab49,
-    #ffe07d,
-    #f9be4e
-  );
-  background-size: 500% 100%;
-}
-@keyframes animateBg {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 100% 0%;
-  }
-}
+

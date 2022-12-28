@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
        <div className="general mt-5">
-        <div className="container main mt-2 border border-3 border-dark rounded-3">
+        <div className="container main mt-2 bg-transparent">
           <Weather defaultCity="New York"/>
         </div>
         <footer className="mt-3">
