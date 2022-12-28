@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import "./Weather.css";
 import cat from "./images/cat.png";
 import pin from "./images/pin.gif";
@@ -75,6 +76,7 @@ const [city, setCity] = useState(props.defaultCity);
           </div>
     
           <WeatherInfo data={weatherData} />
+          <WeatherForecast coordinates={weatherData.coordinates}/>
         </div>
       );
   } else{

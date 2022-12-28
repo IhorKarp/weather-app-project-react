@@ -1,55 +1,56 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./WeatherForecast.css";
-import cloud from "./images/cloud.gif";
+import WeatherIcon from "./WeatherIcon";
+import WeatherForecastDay from "./WeatherForecastDay";
+import axios from "axios";
 
-export default function WeatherForecast() {
-  return (
-    <div className="container bg-transparent">
-      <div className="three-day">
-        <div className="row">
-          <div className="col-4">
-            <ul>
-              <li>
-                <p className="day fw-bold">Saturday</p>
-              </li>
-              <li>
-                <img id="one" src={cloud} width={72} alt="weather logo" />
-              </li>
-              <li>
-                <p className="small-temp">7°</p>
-              </li>
-            </ul>
-          </div>
-          <div className="col-4">
-            <ul>
-              <li>
-                <p id="day-two" className="day fw-bold">
-                  Sunday
-                </p>
-              </li>
-              <li>
-                <img id="two" src={cloud} width={72} alt="weather logo" />
-              </li>
-              <li>
-                <p className="small-temp">9°</p>
-              </li>
-            </ul>
-          </div>
-          <div className="col-4">
-            <ul>
-              <li>
-                <p className="day fw-bold">Monday</p>
-              </li>
-              <li>
-                <img id="three" src={cloud} width={72} alt="weather logo" />
-              </li>
-              <li>
-                <p className="small-temp">11°</p>
-              </li>
-            </ul>
+export default function WeatherForecast(props) {
+
+  let [loaded , setLoaded] = useState(false);
+  let [forecast , setForecast] = useState(null);
+
+  useEffect(() => {
+		setLoaded(false);
+	}, [props.coordinates]);
+
+  function handleResponse(response){
+    setForecast(response.data.daily);
+    setLoaded(true);
+  }
+  
+  function load(){
+    let apiKey = "8c78e9e7e9928cd1a2a6f923072c3dec";
+    let latitude = props.coordinates.lat;
+		let longitude = props.coordinates.lon;
+		let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+		axios.get(apiUrl).then(handleResponse);
+  }
+
+  
+  if(loaded){
+    console.log(forecast);
+    return (
+      <div className=" WeatherForecast container bg-transparent">
+          <div className="row">
+            <div className="col-4">
+              <WeatherForecastDay data={forecast[1]} />
+            </div>
+            <div className="col-4">
+              <WeatherForecastDay data={forecast[2]} />
+            </div>
+            <div className="col-4">
+              <WeatherForecastDay data={forecast[3]} />
+            </div>
+
           </div>
         </div>
-      </div>
-    </div>
-  );
+    );
+
+  } else {
+    load()
+
+    return null;
+  }
 }
+
