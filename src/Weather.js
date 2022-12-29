@@ -32,13 +32,28 @@ const [city, setCity] = useState(props.defaultCity);
   function updateCity(event) {
     setCity(event.target.value);
   }
-
+ 
   function search() {
     let apiKey = "6752bdf11225f140962e52e40e640b15";
     let units = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
     axios.get(apiUrl).then(handleResponse);
+  } 
+
+  function localSearch(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    let apiKey = `aa27af19e16f8ee065d7861dff9b21a6`;
+    let units = `metric`;
+    let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
+    let apiUrlLocal = `${apiEndpoint}lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+    axios.get(apiUrlLocal).then(handleResponse);
+  }
+
+  function currentLocation(event){
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(localSearch);
   }
   
   if(weatherData.ready){
@@ -70,6 +85,7 @@ const [city, setCity] = useState(props.defaultCity);
                       src={pin}
                       alt="pin"
                       width={70}
+                      onClick={currentLocation}
                     />
                   </button>
                 </div>
