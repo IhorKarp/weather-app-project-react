@@ -1,9 +1,13 @@
 
 
 ⛅ React Weather App (made by Ihor Karp) ⚛️
+
 -✅ Created as a certification project for SheCodes Workshops.
+
 -✅ API used - https://openweathermap.org/api/one-call-api
+
 -✅ Animation library for JS - https://animejs.com/
+
 -✅ Showcasing:
 
 Current weather from any city typed on search bar 🔍 .
