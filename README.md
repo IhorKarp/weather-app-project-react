@@ -11,7 +11,7 @@
 -✅ Showcasing:
 
 Current weather from any city typed on search bar 🔍 .
-Next 6 days weather (updated) .
+Next 3 days weather (updated) .
 Convertion of current weather (Celcius or Fahrenheit) .
 
 # Getting Started with Create React App
