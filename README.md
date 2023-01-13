@@ -1,8 +1,6 @@
-
-
 ⛅ React Weather App (made by Ihor Karp) ⚛️
 
--✅ Created as a certification project for SheCodes Workshops.
+You can see it live here https://whimsical-kitten-611ad1.netlify.app/
 
 -✅ API used - https://openweathermap.org/api/one-call-api
 
@@ -13,6 +11,9 @@
 Current weather from any city typed on search bar 🔍 .
 Next 3 days weather (updated) .
 Convertion of current weather (Celcius or Fahrenheit) .
+
+![image](https://user-images.githubusercontent.com/119017588/212421517-709601e4-7b6d-4c86-8994-fb61435582f3.png)
+
 
 # Getting Started with Create React App
 
